@@ -2,13 +2,14 @@
     <div class="nav-wrapper yellow accent-4">
       <a href="#" class="brand-logo">Amazon</a>
       <ul id="nav-mobile" class="right yellow accent-4">
-        <li><a routerLink="/encomiendas/get">Encomiendas</a></li>
-        <li><a routerLink="/servicios/get">Servicios</a></li>
-        <li><a routerLink="/clientes/get">Clientes</a></li>
-        <li><a routerLink="/admin/get">Administrador</a></li>
+        <li *ngIf="activeSession"><a routerLink="/encomiendas/get">Encomiendas</a></li>
+        <li *ngIf="activeSession"><a routerLink="/servicios/get">Servicios</a></li>
+        <li *ngIf="activeSession"><a routerLink="/clientes/get">Clientes</a></li>
+        <li *ngIf="activeSession"><a routerLink="/admin/get">Administrador</a></li>
         <!--<li><a routerLink="/seguridad/login">Login</a></li>-->
         <!-- Sesion -->
         <li *ngIf="!activeSession"><a routerLink="/seguridad/login">Login</a></li>
+        <li *ngIf="!activeSession"><a routerLink="/admin/create">Registrarse</a></li>
         <li *ngIf="activeSession"><a routerLink="/seguridad/logout">Cerrar Sesion</a></li>
       </ul>
     </div>
