@@ -58,7 +58,7 @@ id: string=''
  
     this.encomiendaService.update(encomienda).subscribe((data: EncomiendaModelo)=> {
       Swal.fire('Editado Correctamente!', '', 'success')
-      this.router.navigate(['/admin/get']);
+      this.router.navigate(['/encomiendas/get']);
     },
     (error: any) => {
       console.log(error)

@@ -1,14 +1,14 @@
 <div class="container">
     <br>
-    <a routerLink="/encomiendas/create" class="btn">Registrar Encomienda</a>
+    <a routerLink="/encomiendas/create" class="btn blue-grey darken-2">Registrar Encomienda</a>
    
     <table class="table responsive">
       <thead>
         <tr>
-            <th>Descripcion</th>
-            <th>Peso</th>
+            <th>Descripción</th>
+            <th>Peso Kg.</th>
             <th>Tipo</th>
-            <th>Presentacion</th>
+            <th>Presentación</th>
             <th>Acciones</th>
         </tr>
       </thead>
@@ -20,11 +20,12 @@
           <td>{{p.tipo}}</td>
           <td>{{p.presentacion}}</td>
           <td>
-            <a routerLink="/encomiendas/edit/{{p.id}}" class="btn">Editar</a>
-            <button class="btn red" (click)="delete(p.id)">Eliminar</button>
+            <a routerLink="/encomiendas/edit/{{p.id}}" class="btn yellow darken-4">Editar</a>
+            <button class="btn grey darken-1" (click)="delete(p.id)">Eliminar</button>
           </td>
         </tr>
       </tbody>
     </table>
-    </div>
+</div>
+<br>
   

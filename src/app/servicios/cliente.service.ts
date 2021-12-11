@@ -29,6 +29,10 @@ export class ClienteService {
         direccion: cliente.direccion,
         telefono: cliente.telefono,
         email: cliente.email
+      }, {
+        headers: new HttpHeaders({
+          "Authorization": `Bearer ${this.token}`
+        })
       });
     }
 

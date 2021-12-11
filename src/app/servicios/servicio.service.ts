@@ -20,13 +20,17 @@ export class ServicioService {
     token: string = ''
 
     store(servicio: ServicioModelo): Observable<ServicioModelo> {
-      return this.http.post<ServicioModelo>(`${this.url}/servicio`, {
+      return this.http.post<ServicioModelo>(`${this.url}/servicios`, {
         fecha: servicio.fecha,
         hora: servicio.hora,
         valor: servicio.valor,
         origen: servicio.origen,
         destino: servicio.destino,
         encomienda: servicio.encomienda
+      }, {
+        headers: new HttpHeaders({
+          "Authorization": `Bearer ${this.token}`
+        })  
       });
     }
 
