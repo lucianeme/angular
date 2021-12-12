@@ -1,6 +1,6 @@
 <div class="container">
     <br>
-    <a routerLink="/admin/create" class="btn">Registrar Persona</a>
+    <a routerLink="/admin/create" class="btn blue-grey darken-2">Registrar Persona</a>
    
     <table class="table responsive">
       <thead>
@@ -20,11 +20,11 @@
           <td>{{p.correo}}</td>
           <td>{{p.telefono}}</td>
           <td>
-            <a routerLink="/admin/edit/{{p.id}}" class="btn">Editar</a>
-            <button class="btn red" (click)="delete(p.id)">Eliminar</button>
+            <a routerLink="/admin/edit/{{p.id}}" class="btn yellow darken-4">Editar</a>
+            <button class="btn grey darken-1" (click)="delete(p.id)">Eliminar</button>
           </td>
         </tr>
       </tbody>
     </table>
     </div>
-  
+<br>  

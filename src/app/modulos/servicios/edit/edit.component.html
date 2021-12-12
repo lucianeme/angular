@@ -21,20 +21,32 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input formControlName="origen" type="text" class="validate">
-          <label class="active" for="origen">Origen</label>
+          <!--<input formControlName="origen" type="text" class="validate">
+          <label class="active" for="origen">Origen</label>-->
+          <select class="browser-default validate" formControlName="origen" >
+            <option value="" disabled selected>Origen</option>
+            <option *ngFor="let clior of listadoClientesO" value="{{clior.nombre}} {{clior.apellidos}}">{{clior.nombre}} {{clior.apellidos}}</option>
+          </select>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input formControlName="destino" type="text" class="validate">
-          <label class="active" for="destino">Destino</label>
+          <!--<input formControlName="destino" type="text" class="validate">
+          <label class="active" for="destino">Destino</label>-->
+          <select class="browser-default validate" formControlName="destino" >
+            <option value="" disabled selected>Destino</option>
+            <option *ngFor="let clior of listadoClientesO" value="{{clior.nombre}} {{clior.apellidos}}">{{clior.nombre}} {{clior.apellidos}}</option>
+          </select>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input formControlName="encomienda" type="text" class="validate">
-          <label class="active" for="encomienda">Encomienda</label>
+          <!--input formControlName="encomienda" type="text" class="validate">
+          <label class="active" for="encomienda">Encomienda</label>-->
+          <select class="browser-default validate" formControlName="encomienda" >
+            <option value="" disabled selected>Encomienda</option>
+            <option *ngFor="let encom of listadoEncomiendas" value="{{encom.descripcion}} - {{encom.tipo}}">{{encom.descripcion}} - {{encom.tipo}}</option>
+          </select>
         </div>
       </div>
    

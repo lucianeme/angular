@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ClienteModelo } from 'src/app/modelos/cliente.model';
+import { EncomiendaModelo } from 'src/app/modelos/encomienda.model';
 import { ServicioModelo } from 'src/app/modelos/servicio.model';
+import { ClienteService } from 'src/app/servicios/cliente.service';
+import { EncomiendaService } from 'src/app/servicios/encomienda.service';
 import { ServicioService } from 'src/app/servicios/servicio.service';
 import Swal from 'sweetalert2'
 
@@ -15,8 +19,13 @@ export class EditComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private servicioService: ServicioService,
+    private encomiendaService: EncomiendaService,
+    private clienteService: ClienteService,
     private router: Router,
     private route: ActivatedRoute) { }
+
+    listadoEncomiendas: EncomiendaModelo[] = []
+    listadoClientesO: ClienteModelo[] = []
 
     fgValidacion = this.fb.group({
       id: ['', [Validators.required]],
@@ -33,6 +42,8 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params["id"]
     this.buscarRegistro(this.id);
+    this.getAllEncomiendas()
+    this.getAllClientesOrigen()
   }
 
   buscarRegistro(id: string){
@@ -65,6 +76,20 @@ export class EditComponent implements OnInit {
     (error: any) => {
       console.log(error)
       alert("Error en el envio");
+    })
+  }
+
+  getAllEncomiendas(){
+    this.encomiendaService.getAll().subscribe((data: EncomiendaModelo[]) => {
+      this.listadoEncomiendas = data
+      console.log(data)
+    })
+  }
+
+  getAllClientesOrigen(){
+    this.clienteService.getAll().subscribe((data: ClienteModelo[]) => {
+      this.listadoClientesO = data
+      console.log(data)
     })
   }
 
